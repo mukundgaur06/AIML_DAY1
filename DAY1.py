@@ -35,4 +35,5 @@ fig = px.histogram(medical_df, x='charges', marginal='box', color='smoker', colo
 fig.update_layout(bargap=0.1)
 fig.show()
 
+
 # %%
