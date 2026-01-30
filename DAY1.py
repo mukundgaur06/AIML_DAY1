@@ -31,5 +31,8 @@ fig.show()
 fig = px.histogram(medical_df, x='bmi', marginal='box', color_discrete_sequence=['red'], title='Distribution of BMI (Body Mass Index)')
 fig.update_layout(bargap=0.1)
 fig.show()
+fig = px.histogram(medical_df, x='charges', marginal='box', color='smoker', color_discrete_sequence=['green', 'grey'], title='Annual Medical Charges')
+fig.update_layout(bargap=0.1)
+fig.show()
 
 # %%
