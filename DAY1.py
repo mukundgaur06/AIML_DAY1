@@ -12,6 +12,7 @@ print(medical_df)
 print(medical_df.head())
 print(medical_df.info())
 print(medical_df.describe())
+# %%
 import jovian
 import plotly.express as px
 import matplotlib
@@ -23,17 +24,24 @@ matplotlib.rcParams['font.size'] = 14
 matplotlib.rcParams['figure.figsize'] = (10, 6)
 matplotlib.rcParams['figure.facecolor'] = '#00000000'
 print("Howdi!!??")
+
+# %%
 print(medical_df.age.describe())
 plt.show()
+
+# %%
 fig = px.histogram(medical_df, x='age', marginal='box', nbins=47, title='Distribution of Age')
 fig.update_layout(bargap=0.1)
 fig.show()
+# %%
 fig = px.histogram(medical_df, x='bmi', marginal='box', color_discrete_sequence=['red'], title='Distribution of BMI (Body Mass Index)')
 fig.update_layout(bargap=0.1)
 fig.show()
+# %%
 fig = px.histogram(medical_df, x='charges', marginal='box', color='smoker', color_discrete_sequence=['green', 'grey'], title='Annual Medical Charges')
 fig.update_layout(bargap=0.1)
 fig.show()
 
-
 # %%
+medical_df.smoker.value_counts()
+px.histogram(medical_df, x='smoker', color='sex', title='Smoker')
