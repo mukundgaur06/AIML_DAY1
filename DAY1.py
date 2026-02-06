@@ -70,3 +70,10 @@ medical_df.smoker
 # %%
 medical_df.charges.corr(smoker_numeric)
 # %%
+medical_df[['age', 'bmi', 'children', 'charges']].corr()
+# medical_df.corr(), but it will give an error because of the non-numeric columns
+# %%
+px.scatter(medical_df, x = 'age', y = 'age')
+# %%
+sns.heatmap(medical_df[['age', 'bmi', 'children', 'charges']].corr(), cmap = 'Reds', annot = True)
+plt.title('Correlation Heatmap')
