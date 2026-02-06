@@ -45,3 +45,28 @@ fig.show()
 # %%
 medical_df.smoker.value_counts()
 px.histogram(medical_df, x='smoker', color='sex', title='Smoker')
+# %%
+fig = px.scatter(medical_df, x = 'age', y = 'charges', color = 'smoker', opacity = 0.8, hover_data = ['sex'], title = 'Age vs Charges')
+fig.update_traces(marker_size = 5)
+fig.show()
+# %%
+fig = px.scatter(medical_df, x='bmi', y='charges', color='smoker', opacity=0.8, hover_data=['sex'], title='BMI vs. Charges')
+fig.update_traces(marker_size=5)
+fig.show()
+# %%
+px.violin(medical_df, x = 'children', y = 'charges')
+# %%
+medical_df.charges.corr(medical_df.age)
+# %%
+medical_df.charges.corr(medical_df.bmi)
+# %%
+medical_df.charges.corr(medical_df.children)
+# %%
+smoker_values = {'no': 0, 'yes': 1}
+smoker_numeric = medical_df.smoker.map(smoker_values)
+smoker_numeric
+# %%
+medical_df.smoker
+# %%
+medical_df.charges.corr(smoker_numeric)
+# %%
