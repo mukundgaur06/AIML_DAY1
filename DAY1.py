@@ -77,3 +77,40 @@ px.scatter(medical_df, x = 'age', y = 'age')
 # %%
 sns.heatmap(medical_df[['age', 'bmi', 'children', 'charges']].corr(), cmap = 'Reds', annot = True)
 plt.title('Correlation Heatmap')
+
+# %%
+#LINEAR REGRESSION USING A SINGLE FEATURE
+non_smoker_df = medical_df[medical_df.smoker == 'no']
+# %%
+plt.title('Age vs. Charges')
+sns.scatterplot(data=non_smoker_df, x='age', y='charges', alpha=0.7, s=15)
+# %%
+def estimate_charges(age, w, b):
+    return w * age + b
+# %%
+w = 50
+b = 100
+# %%
+estimate_charges(0, w, b)
+# %%
+ages = non_smoker_df.age
+ages
+# %%
+estimate_charges = estimate_charges(ages, w, b)
+
+# %%
+estimate_charges
+# %%
+non_smoker_df.charges
+# %%
+plt.plot(ages, estimate_charges,'r-')
+plt.xlabel('Age')
+plt.ylabel('Estimated Charges')
+# %%
+target = non_smoker_df.charges
+plt.plot(ages, estimate_charges, 'r', alpha = 0.9)
+plt.scatter(ages, target, s = 8, alpha = 0.8)
+plt.xlabel('Age')
+plt.ylabel('Charges')
+plt.legend(['Estimated Charges', 'Actual Charges'])
+# %%
