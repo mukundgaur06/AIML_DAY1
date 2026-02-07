@@ -114,3 +114,15 @@ plt.xlabel('Age')
 plt.ylabel('Charges')
 plt.legend(['Estimated Charges', 'Actual Charges'])
 # %%
+def try_parameters(w, b):
+    ages = non_smoker_df.age
+    target = non_smoker_df.charges
+    estimated_charges = estimate_charges(ages, w, b)
+    plt.plot(ages, estimate_charges, 'r', alpha = 0.9)
+    plt.scatter(ages, target, s = 9, alpha = 0.8)
+    plt.xlabel('Age')
+    plt.ylabel('Charges')
+    plt.legend(['Estimate', 'Actual'])
+# %%
+try_parameters(60, 200)
+# %%
