@@ -126,3 +126,7 @@ def try_parameters(w, b):
 # %%
 try_parameters(60, 200)
 # %%
+try_parameters(400, 5000)
+# %%
+try_parameters(400, -7000)
+# %%
